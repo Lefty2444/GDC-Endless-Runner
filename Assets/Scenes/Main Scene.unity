@@ -15850,7 +15850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHeight: 5
   jumpPowerup: 0.2
-  minJump: 3
+  minJump: 2.75
   maxJump: 6
   jumpTime: 0.7
 --- !u!61 &1180129357
