@@ -16156,6 +16156,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHeight: 5
   jumpTime: 0.7
+  audioClips:
+  - {fileID: 8300000, guid: b1c6bdc530f53eb4b90f5176e891faaa, type: 3}
+  - {fileID: 8300000, guid: d27b1e16c064db14eae260c77705bd1e, type: 3}
+  music: {fileID: 1419773940}
 --- !u!61 &1180129357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20238,10 +20242,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 643a1b1e9c857164280bbbb491fcfb7b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 64d3c153077352e4584654d027047f4c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1.43
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
