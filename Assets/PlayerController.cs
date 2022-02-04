@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float jumpHeight = 5;
     public float jumpTime = .5f;
+    public GameObject PauseScreen;
 
     private Vector3 startPos;
     private bool jumping = false;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             Time.timeScale = 0;
+            PauseScreen.SetActive(true);
         }
     }
 
