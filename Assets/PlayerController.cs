@@ -7,15 +7,21 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 5;
     public float jumpTime = .5f;
 
+    public AudioClip[] audioClips;
+    public AudioSource music;
+
     private Vector3 startPos;
     private bool jumping = false;
     private Animator animator;
-
+    private AudioSource audioSource;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 6)
         {
+            audioSource.clip = audioClips[1];
+            audioSource.Play();
+            StartCoroutine(DeathMusic(1));
             Time.timeScale = 0;
         }
     }
@@ -25,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         startPos = transform.position;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,6 +44,8 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator Jump()
     {
+        audioSource.clip = audioClips[0];
+        audioSource.Play();
         jumping = true;
         animator.SetBool("jumping", true);
         for (float t = 0; t < 1; t += Time.deltaTime / jumpTime)
@@ -49,5 +58,14 @@ public class PlayerController : MonoBehaviour
         transform.position = startPos;
         jumping = false;
         animator.SetBool("jumping", false);
+    }
+
+    IEnumerator DeathMusic(float time)
+    {
+        for (float t = 0; t < 1; t += Time.unscaledDeltaTime / time)
+        {
+            music.pitch = Mathf.Lerp(1, 0, t);
+            yield return null;
+        }
     }
 }
