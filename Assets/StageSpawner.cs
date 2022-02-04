@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class StageSpawner : MonoBehaviour
 {
-    public float rate;
+    public float rate;    
+    public float cutoff;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class StageSpawner : MonoBehaviour
     void Update()
     {
         transform.Translate(-rate * Time.deltaTime, 0, 0);
-        if (transform.position.x < -10)
+        if (transform.position.x < -cutoff)
         {
             transform.Translate(20, 0, 0);
         }
