@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public float jumpHeight = 5;
     public float jumpTime = .5f;
+    public GameObject PauseScreen;
 
     public AudioClip[] audioClips;
     public AudioSource music;
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
             audioSource.Play();
             StartCoroutine(DeathMusic(1));
             Time.timeScale = 0;
+            PauseScreen.SetActive(true);
         }
     }
 
@@ -67,5 +70,9 @@ public class PlayerController : MonoBehaviour
             music.pitch = Mathf.Lerp(1, 0, t);
             yield return null;
         }
+    }
+    public void Retry() {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 }
