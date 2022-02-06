@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey && !jumping)
+        if (Input.anyKey && !jumping && Time.timeScale != 0)
         {
             StartCoroutine(Jump());
         }
