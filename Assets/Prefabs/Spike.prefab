@@ -45,6 +45,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -110,12 +111,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.0023995265, y: 0.13357492}
-      - {x: -0.17999999, y: -0.21}
-      - {x: -0.22, y: -0.32}
+    - - {x: 0.019101538, y: -0.016931817}
+      - {x: -0.12266414, y: -0.22433396}
+      - {x: -0.16266415, y: -0.32}
       - {x: 0.22, y: -0.32}
       - {x: 0.0995495, y: -0.087375104}
-      - {x: 0.04, y: 0.14999999}
+      - {x: 0.054333963, y: 0.013827279}
 --- !u!114 &3545858745599697571
 MonoBehaviour:
   m_ObjectHideFlags: 0
