@@ -8,7 +8,7 @@ public class SpikeSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnSpike", 1, .8f);
+        InvokeRepeating("SpawnSpike", 1, .1f);
     }
 
     // Update is called once per frame
@@ -18,10 +18,10 @@ public class SpikeSpawner : MonoBehaviour
     }
     void SpawnSpike()
     {
-        if (Random.Range(0, 2) != 1)
+        if (Random.Range(0, 20) == 1)
         {
-            return;
+            Instantiate(spike, transform.position, transform.rotation);
+            Time.timeScale += .02f;
         }
-        Instantiate(spike, transform.position, transform.rotation);
     }
 }

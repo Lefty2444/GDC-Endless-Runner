@@ -5,9 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float jumpHeight = 5;
-    public float jumpPowerup;
-    public float minJump = 3;
-    public float maxJump = 6;
     public float jumpTime = .5f;
 
     public AudioClip[] audioClips;
@@ -36,29 +33,14 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
     }
-    //while playing the game, i ran into an issue where spikes would spawn too close, and jumping over one would cause you to land right on the next
-    //i see two ways to fix this issue: 
-    //make the player jump higher or shorter depending on how long they hold the space bar
-    //make the spikes more spaced apart
-    //i think the space bar one is the best
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Jump") && !jumping)
-        {
-
-            jumpHeight = jumpHeight + (jumpPowerup);
-            if (jumpHeight > maxJump)
-            {
-                jumpHeight = maxJump;
-            }
-            //StartCoroutine(Jump());
-        }
-        if (Input.GetButtonUp("Jump") && !jumping)
+        if (Input.anyKey && !jumping)
         {
             StartCoroutine(Jump());
         }
-
     }
     IEnumerator Jump()
     {
@@ -76,7 +58,6 @@ public class PlayerController : MonoBehaviour
         transform.position = startPos;
         jumping = false;
         animator.SetBool("jumping", false);
-        jumpHeight = minJump;
     }
 
     IEnumerator DeathMusic(float time)

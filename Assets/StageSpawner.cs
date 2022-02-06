@@ -18,7 +18,7 @@ public class StageSpawner : MonoBehaviour
         transform.Translate(-rate * Time.deltaTime, 0, 0);
         if (transform.position.x < -cutoff)
         {
-            transform.Translate(20, 0, 0);
+            transform.Translate(cutoff * 2, 0, 0);
         }
     }
     void SpawnStage()
